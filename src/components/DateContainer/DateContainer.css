@@ -1,0 +1,14 @@
+.date-container p {
+  font-size: 40px;
+  font-weight: 200;
+}
+
+.date-container span {
+  padding-left: 20px;
+  font-size: 30px;
+}
+
+.date-container h6 {
+  font-size: 35px;
+  font-weight: 400;
+}

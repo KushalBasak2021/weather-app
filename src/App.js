@@ -1,23 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import CurrentDataContainer from "./components/CurrentDataContainer/CurrentDataContainer";
+import DateContainer from "./components/DateContainer/DateContainer";
+import FutureDataContainer from "./components/FutureDataContainer/FutureDataContainer";
+import InputForm from "./components/InputForm/InputForm";
+import PlaceContainer from "./components/PlaceContainer/PlaceContainer";
 
 function App() {
+  const [weatherData, setWeatherData] = useState({});
+  const [inputData, setInputData] = useState("Balurghat");
+  const [searchData, setSearchData] = useState("");
+  useEffect(() => {
+    let APIKEY = "a116d42e9e962e11beec08106f967110";
+
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${inputData}&appid=${APIKEY}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        let lat = data.coord.lat;
+        let lon = data.coord.lon;
+        return getDatafor7days(lat, lon);
+      });
+
+    const getDatafor7days = async (lat, lon) => {
+      let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${APIKEY}`;
+      try {
+        let res = await fetch(url);
+        let data = await res.json();
+        setWeatherData(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  }, [inputData]);
+
+  console.log(weatherData);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="upper-container">
+        <DateContainer data={weatherData} />
+        <InputForm
+          setInputData={setInputData}
+          searchData={searchData}
+          setSearchData={setSearchData}
+        />
+        <PlaceContainer data={weatherData} inputData={inputData} />
+      </div>
+      <div className="middle-container">
+        <CurrentDataContainer data={weatherData} />
+      </div>
+      <div className="lower-container">
+        <FutureDataContainer data={weatherData} />
+      </div>
     </div>
   );
 }
