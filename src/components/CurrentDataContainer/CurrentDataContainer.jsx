@@ -29,12 +29,12 @@ const CurrentDataContainer = ({ data }) => {
                 <h6>{(data.current.temp - 273.15).toFixed(2)}°C</h6>
               </div>
               <p>
-                Day:
-                <span>{(data.daily[0].temp.day - 273.15).toFixed(2)}°C</span>
+                Max:
+                <span>{(data.daily[0].temp.max - 273.15).toFixed(2)}°C</span>
               </p>
               <p>
-                Night:
-                <span>{(data.daily[0].temp.night - 273.15).toFixed(2)}°C</span>
+                Min:
+                <span>{(data.daily[0].temp.min - 273.15).toFixed(2)}°C</span>
               </p>
             </div>
             <div className="right">

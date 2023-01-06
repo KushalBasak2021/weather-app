@@ -1,5 +1,5 @@
 .CurrentDataContainer {
-  width: 500px;
+  width: 90%;
   color: #fff;
   background: rgba(25, 25, 25, 0.7);
   display: flex;
@@ -15,6 +15,8 @@
   gap: 1.5rem;
   font-size: 20px;
   font-weight: 400;
+  justify-content: space-around;
+  min-width: 90%;
 }
 
 .left {
@@ -53,6 +55,42 @@
   text-align: center;
 }
 
+.humidity p,
+.sunrise p,
+.sunset p {
+  font-size: 18px;
+}
+
 .sunset {
   text-transform: capitalize;
+}
+
+@media (max-width: 500px) {
+  .CurrentDataContainer {
+    width: 95%;
+  }
+
+  .humidity,
+  .sunrise,
+  .sunset {
+    font-size: 20px;
+  }
+
+  .humidity p,
+  .sunrise p,
+  .sunset p {
+    font-size: 14px;
+  }
+
+  .CurrentDataContainer h6 {
+    font-weight: 500;
+  }
+
+  .date-temp {
+    font-size: 20px;
+  }
+
+  .upper {
+    gap: 10px;
+  }
 }

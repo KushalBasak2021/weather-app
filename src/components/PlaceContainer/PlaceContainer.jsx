@@ -8,10 +8,12 @@ const PlaceContainer = ({ data, inputData }) => {
         <div></div>
       ) : (
         <div className="place-container">
-          <p>
-            {data.timezone.split("/")[0]}/
-            {inputData.charAt(0).toUpperCase() + inputData.slice(1)}
-          </p>
+          {inputData && (
+            <p>
+              {data.timezone.split("/")[0]}/
+              {inputData.charAt(0).toUpperCase() + inputData.slice(1)}
+            </p>
+          )}
           <h6>
             {data.lat.toFixed(3)}N - {data.lon.toFixed(3)}E
           </h6>

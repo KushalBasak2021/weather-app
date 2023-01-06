@@ -1,23 +1,31 @@
 .OneDayData {
-  min-width: 170px;
+  width: 14.28%;
   background-color: rgba(25, 25, 25, 0.7);
   text-align: center;
-  padding: 15px;
+  padding: 15px 10px;
   border-radius: 5px;
 }
 
 .OneDayData h6 {
-  font-size: 20px;
+  width: 80%;
+  font-size: 16px;
   font-weight: 200;
   background-color: rgba(25, 25, 25, 0.9);
+  margin: auto;
 }
 
 .OneDayData p {
   padding-bottom: 5px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .OneDayData span {
   font-weight: 200;
   text-transform: capitalize;
+}
+
+@media (max-width: 900px) {
+  .OneDayData {
+    width: 100%;
+  }
 }

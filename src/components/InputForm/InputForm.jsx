@@ -22,7 +22,9 @@ const InputForm = ({ searchData, setSearchData, setInputData }) => {
         onChange={(e) => setSearchData(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <button onClick={handleSearch}>Search</button>
+      <div className="button">
+        <button onClick={handleSearch}>Search</button>
+      </div>
     </div>
   );
 };

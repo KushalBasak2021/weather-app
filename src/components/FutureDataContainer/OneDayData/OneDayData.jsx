@@ -23,7 +23,10 @@ const OneDayData = ({ data }) => {
         alt=""
       />
       <p>
-        <span>{(data.temp.day - 273.15).toFixed(2)}°C</span>
+        <span>
+          {(data.temp.max - 273.15).toFixed(0)}/
+          {(data.temp.min - 273.15).toFixed(0)}°C
+        </span>
       </p>
       <p>
         <span>{data.weather[0].description}</span>
